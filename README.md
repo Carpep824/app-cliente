@@ -1,56 +1,60 @@
-# Welcome to your Expo app 👋
+# App Cliente - Plataforma de Envíos
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicación móvil desarrollada para la gestión y seguimiento de paquetes desde la perspectiva del cliente. Permite visualizar el historial de envíos, monitorear entregas en tiempo real y gestionar reportes de incidencias.
 
-## Get started
+## Características Principales
 
-1. Install dependencies
+La aplicación consta de 4 vistas principales construidas con un enfoque declarativo y navegación basada en archivos:
 
-   ```bash
-   npm install
-   ```
+* **Dashboard (Inicio):** Panel principal que muestra un resumen de usuario, barra de búsqueda de folios y una lista interactiva de envíos recientes con indicadores de estado.
+* **Detalles del Envío:** Vista dedicada al desglose de un paquete específico, implementando una línea de tiempo vertical para ilustrar el historial y progreso logístico.
+* **Rastreo en Vivo:** Interfaz de simulación cartográfica que posiciona la unidad de reparto en tiempo real, con una tarjeta inferior (bottom sheet) superpuesta para detalles de llegada estimada.
+* **Centro de Ayuda:** Formulario interactivo para levantamiento de reportes, utilizando selección de estado dinámico para categorizar el problema (paquete no llegado, dirección incorrecta, daño).
+* **Navegación Global:** Menú lateral desplegable (Modal) para el acceso rápido a las secciones principales y gestión de sesión.
 
-2. Start the app
+## Tecnologías Utilizadas
 
-   ```bash
-   npx expo start
-   ```
+* **Framework:** [React Native](https://reactnative.dev/)
+* **Entorno:** [Expo](https://expo.dev/) (SDK más reciente)
+* **Enrutamiento:** [Expo Router](https://docs.expo.dev/router/introduction/) (Navegación basada en la estructura del directorio `src/app`)
+* **Iconografía:** `@expo/vector-icons` (Feather y MaterialCommunityIcons)
 
-In the output, you'll find options to open the app in a
+## Estructura del Proyecto
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+El código fuente está centralizado en el directorio `src/app/`, utilizando el sistema de rutas de Expo:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+```text
+app-cliente/
+├── src/
+│   └── app/
+│       ├── _layout.tsx      # Configuración del Stack de navegación base
+│       ├── index.tsx        # Dashboard principal y Menú Lateral (Modal)
+│       ├── detalles.tsx     # Vista de línea de tiempo y detalles del folio
+│       ├── rastreo.tsx      # Vista de simulación de mapa en tiempo real
+│       └── ayuda.tsx        # Formulario de reportes e incidencias
+├── assets/                  # Imágenes y recursos estáticos
+├── package.json             # Dependencias del proyecto
+└── app.json                 # Configuración general de Expo
+```
+⚙️ Requisitos e Instalación
 
-## Get a fresh project
+**1. Clonar el repositorio:**
 
-When you're ready, run:
+```Bash
+git clone [https://github.com/Carpep824/app-cliente.git](https://github.com/Carpep824/app-cliente.git)
+```
+**2. Instalar las dependencias requeridas:**
 
-```bash
-npm run reset-project
+```Bash
+cd app-cliente
+npm install
+```
+**3. Iniciar el servidor de desarrollo:**
+
+```Bash
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+**Visualización**
+- Dispositivo físico: Descarga la aplicación Expo Go (disponible en iOS y Android) y escanea el código QR generado en la terminal.
+- Navegador Web: Presiona la tecla w en la terminal durante la ejecución para previsualizar la interfaz compilada para web.
